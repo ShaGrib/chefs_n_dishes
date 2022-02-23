@@ -88,6 +88,8 @@ namespace chefs_n_dishes.Controllers
             }
             else
             {
+                List<Chef> AllChefs = _context.Chefs.OrderByDescending(c => c.ChefId).ToList();
+                ViewBag.AllChefs = AllChefs;
                 return View("DishesNew");
             }
         }
