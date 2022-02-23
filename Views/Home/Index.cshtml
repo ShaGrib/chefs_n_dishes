@@ -29,9 +29,12 @@
             @{
                 foreach (Chef c in ViewBag.allChefs)
                 {
+                    int Today = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+                    int DOB = int.Parse(c.DateOfBirth.ToString("yyyyMMdd"));
+                    int Age = (Today - DOB) / 10000;
                     <tr>
                         <td>@c.FirstName @c.LastName</td>
-                        <td>@c.DateOfBirth</td>
+                        <td>@Age</td>
                         <td>@c.Dishes.Count</td>
                     </tr>
                 }
