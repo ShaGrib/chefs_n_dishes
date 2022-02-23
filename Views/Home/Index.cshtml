@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Chef
+
+<div class="m-5">
+    <div class="d-flex row justify-content-between">
+        <div></div>
+        <h1 class="">Chefs
+            | <a href="/dishes">Dishes</a>
+        </h1>
+        <a href="/new" class="text-center d-flex align-items-center">Add a Chef</a>
+    </div>
+    <div class="d-flex justify-content-start">
+        <h5 class="col-5">Check out our roster of Chefs!</h5>
+    </div>
+    <hr class="border border-3 border-dark rounded-3 col-10">
+    <div>
+        <table class="table table-striped table-hover table-bordered border border-3 border-dark">
+            <thead class="table-secondary">
+                <tr class="">
+                    <th class="col-5">Name</th>
+                    <th class="col-2">Age</th>
+                    <th class="col-3"># of Dishes</th>
+                </tr>
+            </thead>
+
+            @{
+                foreach (Chef c in ViewBag.allChefs)
+                {
+                    <tr>
+                        <td>@c.FirstName @c.LastName</td>
+                        <td>@c.DateOfBirth</td>
+                        <td>@c.Dishes.Count</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
